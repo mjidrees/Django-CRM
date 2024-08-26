@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<br>
+
+    {% if user.is_authenticated %}
+        <h2>Records</h2>
+        <br>
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Is Staff</th>
+                <th scope="col">Is Active</th>
+                <th scope="col">Data Joined</th>
+                <th scope="col">Last Login</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% if records %}
+                    {%for record in records%}
+              <tr>
+                <td><a href="{% url 'record' record.id %}">{{record.id}}</a></td>
+                <td>{{record.first_name}} {{record.last_name}}</td>
+                <td>{{record.email}}</td>
+                <td>{{record.is_staff}}</td>
+                <td>{{record.is_active}}</td>
+                <td>{{record.data_joined}}</td>
+                <td>{{record.last_login}}</td>
+              </tr>
+                    {%endfor%}
+                {%endif%}
+            </tbody>
+        </table>
+
+        {%endif%}
+{% endblock %}

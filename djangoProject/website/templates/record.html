@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<br>
+        <div class="card">
+            <div class="card-header">
+                Customer Record
+            </div>
+            <div class="card-body">
+              <blockquote class="blockquote mb-0 text-info">
+                <p> {{individual_record.first_name}} {{individual_record.last_name}}</p>
+                <footer class="blockquote-footer">Email : <cite title="Source Title ">{{individual_record.email}}</cite></footer>
+                <footer class="blockquote-footer">Address : <cite title="Source Title"> {{individual_record.address}}</cite></footer>
+                <footer class="blockquote-footer">State : <cite title="Source Title">{{individual_record.state}}</cite></footer>
+                <footer class="blockquote-footer">Country : <cite title="Source Title">{{individual_record.country}}</cite></footer>
+                <footer class="blockquote-footer">Created On : <cite title="Source Title">{{individual_record.created_on}}</cite></footer>
+                
+              </blockquote>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <a class="btn btn-primary" type="button" href="{% url 'add_record' %}">Add</a>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <a class="btn btn-danger" type="button" href="{% url 'delete_record' individual_record.id %}">Delete</a>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a class="btn btn-warning" type="button" href="{% url 'update_record' individual_record.id %}">Update</a>
+                </div>
+                </div>
+                </div>
+            </div>
+          </div>
+          <br>
+          <br>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a class="btn btn-secondary" type="button" href="{% url 'home' %}">Back</a>
+
+
+        <br>
+
+
+{% endblock %}
